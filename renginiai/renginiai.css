@@ -1,0 +1,45 @@
+/* Event grid styling */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 5 columns at 200px */
+    grid-gap: 20px;
+    margin: 20px;
+}
+
+/* Styles for the event cards */
+.event-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.event-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.event-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.event-card button:hover {
+    background-color: #0056b3;
+}

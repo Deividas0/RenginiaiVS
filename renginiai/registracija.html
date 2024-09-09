@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title>Registracija</title>  
+<link rel="stylesheet" href="./registracija.css">
+    <script src="./registracija.js"></script>
+</head>  
+<body>  
+
+<form id="regForma" onsubmit="submitForm(event)">  
+  <div class="container">  
+  <center>  <h1> Registracijos forma</h1> </center>  
+  <hr>  
+<label> Vardas: </label>   
+<input type="text" id="vardas" placeholder= "Vardas" size="20" required />
+
+<label> Pavardė: </label>    
+<input type="text" id="pavarde" placeholder="Pavardė" size="20"required />  
+
+<label>Tel. Numeris:</label>   
+<input type="text" id="telNumeris" value="370" size="11"/ required> 
+ 
+ <label for="email"><b>El. pašto adresas:</b></label>  
+ <input type="text" placeholder="Įveskite el. pašto adresą" id="elPastas" required>  
+  
+<label for="psw"><b>Slaptažodis:</b></label>  
+<input type="password" placeholder="Įveskite slaptažodį" id="slaptazodis" minlength="5" required>  
+
+<h3 id="registerError"></h3>
+    
+    <button type="submit" class="registerbtn">Registruotis</button> 
+    <button type="button" class="registerbtn" onclick="window.location.href = 'http://127.0.0.1:5500/renginiai/index.html'">Atgal</button>   
+</form>  
+</body>  
+</html>  

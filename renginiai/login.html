@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisijungimas</title>
+    <link rel="stylesheet" href="./login.css">
+    <script src="./login.js"></script>
+</head>
+<body>
+    <div class="main">
+          <h1>Prisijungimas</h1>
+          <h3 id="neteisingiDuomenys">Įveskite duomenis</h3>
+          <form id="loginForma" onsubmit="submitForm(event)">
+                <label for="elPastas">
+                      El. pašto adresas:
+                </label>
+                <input type="text" 
+                       id="elPastas" 
+                       name="elPastas" 
+                       placeholder="El. pašto adresas" required>
+
+                <label for="slaptazodis">
+                      Slaptažodis:
+                </label>
+                <input type="password"
+                       id="slaptazodis" 
+                       name="slaptazodis"
+                       placeholder="Slaptažodis" required minlength="5">
+
+
+                <div class="wrap">
+                      <button type="submit">
+                            Prisijungti
+                      </button>
+                </div>
+          </form>
+          <p>Neturite paskyros?
+                <a href="http://127.0.0.1:5500/renginiai/registracija.html"
+                   style="text-decoration: none;">
+                      Prisiregistruoti
+                </a>
+          </p>
+    </div>
+</body>
+</html>

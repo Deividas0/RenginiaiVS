@@ -1,0 +1,90 @@
+<html>
+<body>
+    <button id="checkout-button">Checkout</button>
+
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const stripe = Stripe('pk_test_your_public_key');
+    
+        const createPaymentIntent = async () => {
+          const response = await fetch('/api/stripe/create-payment-intent', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              amount: 2000, // Example amount in cents
+              currency: 'usd'
+            })
+          });
+    
+          const { clientSecret } = await response.json();
+          return clientSecret;
+        };
+    
+        const handlePayment = async () => {
+          const clientSecret = await createPaymentIntent();
+    
+          const result = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+              card: document.querySelector('#card-element'),
+              billing_details: {
+                name: 'Jenny Rosen'
+              }
+            }
+          });
+    
+          if (result.error) {
+            // Show error to your customer
+            console.error(result.error.message);
+          } else {
+            if (result.paymentIntent.status === 'succeeded') {
+              // The payment is complete!
+              console.log('Payment succeeded!');
+            }
+          }
+        };
+    
+        document.querySelector('#payment-button').addEventListener('click', handlePayment);
+    
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+      });
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const stripe = Stripe('pk_test_your_public_key'); // Replace with your public key
+    
+        document.getElementById("checkout-button").addEventListener("click", async () => {
+          const response = await fetch('/api/stripe/create-checkout-session', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              successUrl: window.location.origin + '/success',
+              cancelUrl: window.location.origin + '/cancel',
+              amount: 2000, // Amount in cents
+              currency: 'usd'
+            })
+          });
+    
+          const session = await response.json();
+          const sessionId = session.id;
+    
+          // Redirect to Stripe Checkout
+          const { error } = await stripe.redirectToCheckout({ sessionId });
+    
+          if (error) {
+            console.error("Stripe Checkout error:", error.message);
+          }
+        });
+      });
+    </script>
+</body>
+
+</html>

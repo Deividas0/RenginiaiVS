@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagrindinis</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+        <!-- Kept Admin Menu Button -->
+        <li><button id="adminMenu" onclick="adminPatikra()">Admin Menu</button></li>
+        
+        <!-- Added Kontaktai (Contacts) Button -->
+        <!-- <li><button id="kontaktai" onclick="window.location.href = 'http://127.0.0.1:5500/renginiai/kontaktai.html'">Kontaktai</button></li> -->
+        
+        <!-- Added Apie Mus (About Us) Button -->
+        <li><button id="apieMus" onclick="window.location.href = 'http://127.0.0.1:5500/renginiai/apiemus.html'">Apie Mus</button></li>
+    </ul>
+  </nav>
+
+<!-- Left Sidebar for Ads (SpongeBob GIF) -->
+<div class="sidebar-left">
+    <h3>Vieta jūsų reklamai</h3>
+    <img id="spongebobGif" src="" alt="SpongeBob GIF" style="width:100%;">
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div id="eventList" class="event-grid">
+        <!-- Events will be loaded here -->
+    </div>
+</div>
+
+<!-- Right Sidebar for Ads (Simpsons GIF) -->
+<div class="sidebar-right">
+    <h3>Vieta jūsų reklamai</h3>
+    <img id="simpsonsGif" src="" alt="Simpsons GIF" style="width:100%;">
+</div>
+
+<!-- The form -->
+<div class="form-popup" id="myForm">
+  <form id="popupForma" action="" class="form-container">
+    <h1>Sveikas!</h1>
+    <h5>Jei norėtum sužinoti apie naujus renginius ateityje </h5>
+    <h5>įvesk savo el. pašto adresą ir spausk <span style="color: green;">NORIU</span>!</h5>
+
+    <label for="email"><b></b></label>
+    <input id="prenumeratosEmail" type="text" placeholder="Įveskite el. pašto adresą" name="email" required>
+
+    <button type="submit" class="btn" onclick="uzsisakoPrenumerata()">NORIU</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Nenoriu ir daugiau neklausti</button>
+  </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+</body>
+</html>
